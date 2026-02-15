@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #42275a, #734b6d);
+            color: white;
+            text-align: center;
+        }
+
+        .result-box {
+            margin-top: 150px;
+        }
+
+        .result {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            background: #ff9800;
+            color: white;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #ff5722;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-box">
+        <h2>Prediction Result</h2>
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        <br>
+        <a href="/predict">
+            <button>Try Again</button>
+        </a>
+    </div>
+
+</body>
+</html>
