@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+        }
+
+        .form-container {
+            background: white;
+            color: black;
+            width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid gray;
+        }
+
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Transaction Details</h2>
+
+    <div class="form-container">
+        <form action="/submit" method="POST">
+
+            <input type="number" name="step" placeholder="Step" required>
+            <input type="number" name="amount" placeholder="Amount" required>
+            <input type="number" name="oldbalanceOrg" placeholder="Old Balance Sender" required>
+            <input type="number" name="newbalanceOrig" placeholder="New Balance Sender" required>
+            <input type="number" name="oldbalanceDest" placeholder="Old Balance Receiver" required>
+            <input type="number" name="newbalanceDest" placeholder="New Balance Receiver" required>
+
+            <input type="submit" value="Predict">
+
+        </form>
+    </div>
+
+</body>
+</html>
