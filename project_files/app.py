@@ -56,7 +56,7 @@ def submit():
 
     prediction = model.predict(final_features)
 
-    if prediction[0] == 1:
+    if prediction[0] == "is Fraud":
         result = "⚠️ Fraud Transaction Detected!"
     else:
         result = "✅ Legitimate Transaction"
@@ -66,3 +66,4 @@ def submit():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
