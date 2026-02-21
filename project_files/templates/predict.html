@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fraud Prediction</title>
+    <title>Transaction Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
     <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
-            text-align: center;
+            margin: 0;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .form-container {
-            background: white;
-            color: black;
-            width: 400px;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            width: 450px;
+            color: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
         }
 
-        input {
-            width: 90%;
-            padding: 8px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border: 1px solid gray;
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            outline: none;
         }
 
         input[type="submit"] {
-            background: #4CAF50;
-            color: white;
-            border: none;
+            background: linear-gradient(45deg, #00f5ff, #00ff95);
+            font-weight: bold;
             cursor: pointer;
-            font-size: 16px;
+            transition: 0.3s;
         }
 
         input[type="submit"]:hover {
-            background: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ff95;
         }
     </style>
 </head>
+
 <body>
 
-    <h2>Enter Transaction Details</h2>
+<div class="form-container">
+    <h2>🔍 Analyze Transaction</h2>
 
-    <div class="form-container">
-        <form action="/submit" method="POST">
+    <form action="/submit" method="POST">
 
-    <input type="number" name="step" placeholder="Step" required>
-    <input type="number" name="amount" placeholder="Amount" required>
-    <input type="number" name="oldbalanceOrg" placeholder="Old Balance Sender" required>
-    <input type="number" name="newbalanceOrig" placeholder="New Balance Sender" required>
-    <input type="number" name="oldbalanceDest" placeholder="Old Balance Receiver" required>
-    <input type="number" name="newbalanceDest" placeholder="New Balance Receiver" required>
+        <input type="number" name="step" placeholder="Transaction Step" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <input type="number" name="oldbalanceOrg" placeholder="Old Balance (Sender)" required>
+        <input type="number" name="newbalanceOrig" placeholder="New Balance (Sender)" required>
+        <input type="number" name="oldbalanceDest" placeholder="Old Balance (Receiver)" required>
+        <input type="number" name="newbalanceDest" placeholder="New Balance (Receiver)" required>
 
-    <!-- Transaction Type Dropdown -->
-    <select name="type" required style="width:95%; padding:8px; margin:8px 0; border-radius:8px;">
-        <option value="" disabled selected>Select Transaction Type</option>
-        <option value="CASH_OUT">CASH_OUT</option>
-        <option value="DEBIT">DEBIT</option>
-        <option value="PAYMENT">PAYMENT</option>
-        <option value="TRANSFER">TRANSFER</option>
-    </select>
+        <select name="type" required>
+            <option value="" disabled selected>Select Transaction Type</option>
+            <option value="CASH_OUT">CASH_OUT</option>
+            <option value="DEBIT">DEBIT</option>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="TRANSFER">TRANSFER</option>
+        </select>
 
-    <input type="submit" value="Predict">
+        <input type="submit" value="Predict">
 
     </form>
-
-    </div>
+</div>
 
 </body>
 </html>
