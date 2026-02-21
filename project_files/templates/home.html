@@ -1,68 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Online Payment Fraud Detection</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fraud Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        body {
             height: 100vh;
+            /* Background: Cyber-security themed image with a dark overlay for text readability */
+            background: linear-gradient(rgba(10, 20, 30, 0.85), rgba(10, 20, 30, 0.85)), 
+                        url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Floating animation for the UI card */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 50px;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 60px 40px;
+            border-radius: 30px;
             text-align: center;
-            color: white;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+            width: 750px; /* Increased to accommodate one-line title */
+            max-width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 255, 149, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
         }
 
         h1 {
             font-size: 36px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00f5ff, #00ff95);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Ensures the title and rect stay on exactly one line */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap; 
+            gap: 15px;
+        }
+
+        .rect {
+            flex-shrink: 0; /* Prevents the icon from squishing on smaller screens */
+            width: 40px;
+            height: 20px;
+            border-radius: 4px;
+            background: linear-gradient(45deg, #00f5ff, #00ff95);
+            box-shadow: 0 0 15px rgba(0, 255, 149, 0.5);
         }
 
         p {
             font-size: 18px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            color: #e0e0e0;
+            font-weight: 300;
         }
 
         button {
-            padding: 12px 35px;
-            border-radius: 30px;
+            padding: 16px 50px;
+            border-radius: 50px;
             border: none;
             font-size: 16px;
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-            color: white;
+            background: linear-gradient(45deg, #00f5ff, #00ff95);
+            color: #0d1b2a;
+            font-weight: 700;
             cursor: pointer;
-            transition: 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #00c6ff;
+            transform: scale(1.08);
+            box-shadow: 0 0 30px rgba(0, 255, 149, 0.6);
+            letter-spacing: 2.5px;
+        }
+
+        /* Decorative background glow */
+        .glow-spot {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 149, 0.1) 0%, transparent 70%);
+            z-index: -1;
         }
     </style>
 </head>
 
 <body>
+    <div class="glow-spot" style="top: -100px; left: -100px;"></div>
+    <div class="glow-spot" style="bottom: -100px; right: -100px;"></div>
 
     <div class="card">
-        <h1>💳 Online Payment Fraud Detection</h1>
-        <p>Machine Learning Based Intelligent System</p>
-        <a href="/predict">
-            <button>Check Transaction</button>
+        <h1>
+            <span class="rect"></span>
+            Online Payment Fraud Detection
+        </h1>
+
+        <p>Real-Time Prediction using Machine Learning</p>
+
+        <a href="/predict" style="text-decoration: none;">
+            <button>Start Detection</button>
         </a>
     </div>
-
 </body>
 </html>
