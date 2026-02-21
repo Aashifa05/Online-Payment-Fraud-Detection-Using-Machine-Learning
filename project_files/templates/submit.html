@@ -2,54 +2,72 @@
 <html>
 <head>
     <title>Prediction Result</title>
+
     <style>
         body {
-            font-family: Arial;
-            background: linear-gradient(135deg, #42275a, #734b6d);
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             color: white;
-            text-align: center;
         }
 
         .result-box {
-            margin-top: 150px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
         }
 
         .result {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: bold;
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .fraud {
+            background: #ff4b5c;
+            box-shadow: 0 0 20px red;
+        }
+
+        .safe {
+            background: #00c853;
+            box-shadow: 0 0 20px #00ff95;
         }
 
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 12px 30px;
+            border-radius: 30px;
             border: none;
             cursor: pointer;
-            background: #ff9800;
-            color: white;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background: #ff5722;
+            background: linear-gradient(45deg, #00f5ff, #00ff95);
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="result-box">
-        <h2>Prediction Result</h2>
-        <div class="result">
-            {{ prediction_text }}
-        </div>
-        <br>
-        <a href="/predict">
-            <button>Try Again</button>
-        </a>
+<div class="result-box">
+    <h2>📊 Prediction Result</h2>
+
+    <div class="result 
+        {% if 'Fraud' in prediction_text %}fraud{% else %}safe{% endif %}">
+        {{ prediction_text }}
     </div>
+
+    <a href="/predict">
+        <button>Analyze Another Transaction</button>
+    </a>
+</div>
 
 </body>
 </html>
